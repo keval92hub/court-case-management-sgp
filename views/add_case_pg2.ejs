@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Custom fonts for this template-->
+    <link
+      href="../static/vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="../static/css/sb-admin-2.min.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gradient-primary">
+    <div class="container">
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <div class="p-5">
+            <div class="text-center">
+              <h1 class="h4 text-gray-900 mb-4">Please select a lawyer</h1>
+            </div>
+            <form action="/client/add_case_pg2" method="POST">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table
+                    class="table table-bordered"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Select</th>
+                        <th>Lawyer's name</th>
+                        <th>Age</th>
+                        <th>No. of case worked</th>
+                        <th>Description</th>
+                        <th>Price per hour</th>
+                      </tr>
+                    </thead>
+                  </table>
+                  <table
+                    class="table table-bordered"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <tbody>
+                      <% lawyers.forEach ( (lawyer) => {
+                      if(lawyer.is_profile_complete === "Y") { %>
+                      <tr>
+                        <td>
+                          <label
+                            ><input
+                              required
+                              type="radio"
+                              name="lawyer_id"
+                              value="<%= lawyer._id %>"
+                          /></label>
+                        </td>
+                        <td><%= lawyer.fname %></td>
+                        <td>age</td>
+                        <td>no of cases..</td>
+                        <td>this is the lawyers experience</td>
+                        <td>this will be his payment criteria</td>
+
+                        <td>
+                          <a
+                            href="/lawyer/display_lawyer_profile/<%= lawyer._id %>"
+                            method="GET"
+                            class="btn btn-primary text-white"
+                          >
+                            <!-- <button type="submit" class="btn btn-primary"> -->
+                            More Details
+                            <!-- </button> -->
+                          </a>
+                        </td>
+                      </tr>
+                      <% } } ); %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-user btn-block">
+                Proceed
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
