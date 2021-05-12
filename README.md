@@ -45,4 +45,8 @@ You will know server is running by checking the output of the command `node app.
 
 ## Bugs or improvements
 
-Every project needs improvements, Feel free to report any bugs or improvements. Pull requests are always welcom
+Every project needs improvements, Feel free to report any bugs or improvements. Pull requests are always welcome.
+
+### bugs
+- Currently, when the client chooses a lawyer the lawyer doesn’t get notified.  
+- All the active cases are listed together and are not properly organised according to case types.
